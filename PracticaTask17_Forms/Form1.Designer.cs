@@ -35,20 +35,21 @@
             this.label3 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.levelOfEducation = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.postOfJob = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.nameOfCompany = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.experienceOfJob = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.wageOfJob = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.insuranceList = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.vacationOfJob = new System.Windows.Forms.TextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -63,15 +64,16 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(563, 12);
+            this.textBox1.Location = new System.Drawing.Point(425, 12);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(197, 27);
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(335, 27);
             this.textBox1.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(351, 15);
+            this.label1.Location = new System.Drawing.Point(210, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(209, 20);
             this.label1.TabIndex = 2;
@@ -109,13 +111,15 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 29);
             this.button2.TabIndex = 5;
-            this.button2.Text = "ы";
+            this.button2.Text = "Записать";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // comboBox1
+            // levelOfEducation
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.levelOfEducation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.levelOfEducation.FormattingEnabled = true;
+            this.levelOfEducation.Items.AddRange(new object[] {
             "Среднее общее",
             "Среднее профессиональное",
             "Высшее",
@@ -124,10 +128,11 @@
             "3 разряд",
             "4 разряд",
             "5 разряд"});
-            this.comboBox1.Location = new System.Drawing.Point(367, 133);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(170, 28);
-            this.comboBox1.TabIndex = 6;
+            this.levelOfEducation.Location = new System.Drawing.Point(367, 133);
+            this.levelOfEducation.Name = "levelOfEducation";
+            this.levelOfEducation.Size = new System.Drawing.Size(170, 28);
+            this.levelOfEducation.SelectedIndex = 0;
+            this.levelOfEducation.TabIndex = 6;
             // 
             // label4
             // 
@@ -139,19 +144,21 @@
             this.label4.Text = "Уровень образования \r\n(разряд)*";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox2
+            // postOfJob
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.postOfJob.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.postOfJob.FormattingEnabled = true;
+            this.postOfJob.Items.AddRange(new object[] {
             "Сварщик",
             "Программист",
             "Уборщик",
             "Художник",
             "Дизайнер"});
-            this.comboBox2.Location = new System.Drawing.Point(210, 133);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(151, 28);
-            this.comboBox2.TabIndex = 8;
+            this.postOfJob.Location = new System.Drawing.Point(210, 133);
+            this.postOfJob.Name = "postOfJob";
+            this.postOfJob.Size = new System.Drawing.Size(151, 28);
+            this.postOfJob.SelectedIndex = 0;
+            this.postOfJob.TabIndex = 8;
             // 
             // label5
             // 
@@ -163,12 +170,12 @@
             this.label5.Text = "Должность*";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox2
+            // nameOfCompany
             // 
-            this.textBox2.Location = new System.Drawing.Point(23, 133);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(181, 27);
-            this.textBox2.TabIndex = 10;
+            this.nameOfCompany.Location = new System.Drawing.Point(23, 133);
+            this.nameOfCompany.Name = "nameOfCompany";
+            this.nameOfCompany.Size = new System.Drawing.Size(181, 27);
+            this.nameOfCompany.TabIndex = 10;
             // 
             // label6
             // 
@@ -180,12 +187,12 @@
             this.label6.Text = "Наименование\r\nорганизации*";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox3
+            // experienceOfJob
             // 
-            this.textBox3.Location = new System.Drawing.Point(543, 133);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(143, 27);
-            this.textBox3.TabIndex = 12;
+            this.experienceOfJob.Location = new System.Drawing.Point(543, 133);
+            this.experienceOfJob.Name = "experienceOfJob";
+            this.experienceOfJob.Size = new System.Drawing.Size(143, 27);
+            this.experienceOfJob.TabIndex = 12;
             // 
             // label7
             // 
@@ -197,12 +204,12 @@
             this.label7.Text = "Стаж работы\r\nпо специальности*";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox4
+            // wageOfJob
             // 
-            this.textBox4.Location = new System.Drawing.Point(692, 134);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(125, 27);
-            this.textBox4.TabIndex = 14;
+            this.wageOfJob.Location = new System.Drawing.Point(692, 134);
+            this.wageOfJob.Name = "wageOfJob";
+            this.wageOfJob.Size = new System.Drawing.Size(125, 27);
+            this.wageOfJob.TabIndex = 14;
             // 
             // label8
             // 
@@ -214,16 +221,18 @@
             this.label8.Text = "Заработная\r\nплата*";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox3
+            // insuranceList
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.insuranceList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.insuranceList.FormattingEnabled = true;
+            this.insuranceList.Items.AddRange(new object[] {
             "Да",
             "Нет"});
-            this.comboBox3.Location = new System.Drawing.Point(23, 194);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(181, 28);
-            this.comboBox3.TabIndex = 16;
+            this.insuranceList.Location = new System.Drawing.Point(23, 194);
+            this.insuranceList.Name = "insuranceList";
+            this.insuranceList.Size = new System.Drawing.Size(181, 28);
+            this.insuranceList.SelectedIndex = 0;
+            this.insuranceList.TabIndex = 16;
             // 
             // label9
             // 
@@ -243,32 +252,42 @@
             this.label10.TabIndex = 18;
             this.label10.Text = "Продолжительность отпуска*";
             // 
-            // textBox5
+            // vacationOfJob
             // 
-            this.textBox5.Location = new System.Drawing.Point(210, 195);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(215, 27);
-            this.textBox5.TabIndex = 19;
+            this.vacationOfJob.Location = new System.Drawing.Point(210, 195);
+            this.vacationOfJob.Name = "vacationOfJob";
+            this.vacationOfJob.Size = new System.Drawing.Size(215, 27);
+            this.vacationOfJob.TabIndex = 19;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(24, 249);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(836, 76);
+            this.richTextBox1.TabIndex = 20;
+            this.richTextBox1.Text = "";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(872, 337);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.vacationOfJob);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.insuranceList);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.wageOfJob);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.experienceOfJob);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.nameOfCompany);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.postOfJob);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.levelOfEducation);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -291,19 +310,20 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox levelOfEducation;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox postOfJob;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox nameOfCompany;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox experienceOfJob;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox wageOfJob;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox insuranceList;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox vacationOfJob;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
