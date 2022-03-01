@@ -14,6 +14,7 @@ namespace PracticaTask17_Forms
     public partial class Form1 : Form
     {
 
+        public static String fileBase = "";
         public Form1()
         {
             InitializeComponent();
@@ -28,7 +29,10 @@ namespace PracticaTask17_Forms
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     textBox1.Text = openFileDialog1.FileName;
-                    label3.Text = "OK";
+                    fileBase = openFileDialog1.FileName;
+                    //richTextBox1.Text = File.ReadAllText(fileBase);
+                    label3.Text = "Открыт: ";
+                    label3.Text += openFileDialog1.FileName.Split('\\').Last().Split('.')[0];
                     label3.BackColor = Color.Green;
 
 
@@ -43,10 +47,11 @@ namespace PracticaTask17_Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text = textBox1.Text;
-            if (textBox1.Text != "")
+            //richTextBox1.Text = textBox1.Text;
+            //richTextBox1.Text = fileBase;
+            if (fileBase != "")
             {
-                String[] linesOfFile = File.ReadAllLines(openFileDialog1.FileName);
+                String[] linesOfFile = File.ReadAllLines(fileBase);
                 String request = "";
                 if (nameOfCompany.Text == "")
                 {
@@ -130,7 +135,97 @@ namespace PracticaTask17_Forms
                     else
                     {
                         request += '\n';
-                        File.AppendAllText(openFileDialog1.FileName, request);
+                        File.AppendAllText(fileBase, request);
+                        MessageBox.Show(
+                            "Вакансия добавлена!",
+                            "Успех",
+                            MessageBoxButtons.OK
+                            );
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show(
+                        "База данных не открыта!",
+                        "Ошибка",
+                        MessageBoxButtons.OK
+                        );
+            }
+        }
+
+        private void experienceOfJob_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if (!Char.IsDigit(number) && number != 8 && number != 44) // цифры, клавиша BackSpace и запятая
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void wageOfJob_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if (!Char.IsDigit(number) && number != 8 && number != 44) // цифры, клавиша BackSpace и запятая
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void vacationOfJob_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if (!Char.IsDigit(number) && number != 8 && number != 44) // цифры, клавиша BackSpace и запятая
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (fileBase != "")
+            {
+                String[] linesOfFile = File.ReadAllLines(fileBase);
+                if (postOfJob.Text == "" && levelOfEducation.Text == "" && insuranceList.Text == "")
+                {
+                    MessageBox.Show(
+                        "Критерии поиска не заданы!",
+                        "Ошибка",
+                        MessageBoxButtons.OK
+                        );
+                }
+                else
+                {
+                    richTextBox1.Clear();
+                    foreach (string line in linesOfFile)
+                    {
+                        if (line.Split(',')[1].Contains(postOfJob.Text) && line.Split(',')[2].Contains(levelOfEducation.Text) && line.Split(',')[5].Contains(insuranceList.Text)){
+                            String answer = "Наименование организации: ";
+                            answer += line.Split(',')[0];
+                            answer += " Должность: ";
+                            answer += line.Split(',')[1];
+                            answer += " Уровень образования: ";
+                            answer += line.Split(',')[2];
+                            answer += " Стаж работы: ";
+                            answer += line.Split(',')[3];
+                            answer += " Зарплата: ";
+                            answer += line.Split(',')[4];
+                            answer += " руб. Наличие соц. пакета: ";
+                            answer += line.Split(',')[5];
+                            answer += " Продолжительность отпуска: ";
+                            answer += line.Split(',')[6];
+                            answer += " дней.";
+                            richTextBox1.Text += answer;
+                            richTextBox1.Text += '\n';
+                        }
+                    }
+                    if (richTextBox1.Text == "")
+                    {
+                       MessageBox.Show(
+                       "Вакансии не найдены!",
+                       "Ошибка",
+                       MessageBoxButtons.OK
+                       );
                     }
                 }
             }

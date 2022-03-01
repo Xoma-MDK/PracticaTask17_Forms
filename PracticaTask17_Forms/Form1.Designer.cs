@@ -50,6 +50,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.vacationOfJob = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -83,7 +85,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(688, 42);
+            this.label2.Location = new System.Drawing.Point(634, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 25);
             this.label2.TabIndex = 3;
@@ -95,11 +97,11 @@
             this.label3.BackColor = System.Drawing.Color.Red;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.GhostWhite;
-            this.label3.Location = new System.Drawing.Point(766, 47);
+            this.label3.Location = new System.Drawing.Point(712, 47);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 20);
+            this.label3.Size = new System.Drawing.Size(129, 20);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Error";
+            this.label3.Text = "Файл не выбран";
             // 
             // openFileDialog1
             // 
@@ -131,7 +133,6 @@
             this.levelOfEducation.Location = new System.Drawing.Point(367, 133);
             this.levelOfEducation.Name = "levelOfEducation";
             this.levelOfEducation.Size = new System.Drawing.Size(170, 28);
-            this.levelOfEducation.SelectedIndex = 0;
             this.levelOfEducation.TabIndex = 6;
             // 
             // label4
@@ -157,7 +158,6 @@
             this.postOfJob.Location = new System.Drawing.Point(210, 133);
             this.postOfJob.Name = "postOfJob";
             this.postOfJob.Size = new System.Drawing.Size(151, 28);
-            this.postOfJob.SelectedIndex = 0;
             this.postOfJob.TabIndex = 8;
             // 
             // label5
@@ -174,6 +174,7 @@
             // 
             this.nameOfCompany.Location = new System.Drawing.Point(23, 133);
             this.nameOfCompany.Name = "nameOfCompany";
+            this.nameOfCompany.PlaceholderText = "ООО \"Компания\"";
             this.nameOfCompany.Size = new System.Drawing.Size(181, 27);
             this.nameOfCompany.TabIndex = 10;
             // 
@@ -191,8 +192,10 @@
             // 
             this.experienceOfJob.Location = new System.Drawing.Point(543, 133);
             this.experienceOfJob.Name = "experienceOfJob";
+            this.experienceOfJob.PlaceholderText = "Стаж работы (лет)";
             this.experienceOfJob.Size = new System.Drawing.Size(143, 27);
             this.experienceOfJob.TabIndex = 12;
+            this.experienceOfJob.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.experienceOfJob_KeyPress);
             // 
             // label7
             // 
@@ -208,8 +211,10 @@
             // 
             this.wageOfJob.Location = new System.Drawing.Point(692, 134);
             this.wageOfJob.Name = "wageOfJob";
+            this.wageOfJob.PlaceholderText = "Сумма в рублях";
             this.wageOfJob.Size = new System.Drawing.Size(125, 27);
             this.wageOfJob.TabIndex = 14;
+            this.wageOfJob.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.wageOfJob_KeyPress);
             // 
             // label8
             // 
@@ -231,7 +236,6 @@
             this.insuranceList.Location = new System.Drawing.Point(23, 194);
             this.insuranceList.Name = "insuranceList";
             this.insuranceList.Size = new System.Drawing.Size(181, 28);
-            this.insuranceList.SelectedIndex = 0;
             this.insuranceList.TabIndex = 16;
             // 
             // label9
@@ -256,23 +260,47 @@
             // 
             this.vacationOfJob.Location = new System.Drawing.Point(210, 195);
             this.vacationOfJob.Name = "vacationOfJob";
+            this.vacationOfJob.PlaceholderText = "Продолжительность в днях";
             this.vacationOfJob.Size = new System.Drawing.Size(215, 27);
             this.vacationOfJob.TabIndex = 19;
+            this.vacationOfJob.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.vacationOfJob_KeyPress);
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(24, 249);
+            this.richTextBox1.Location = new System.Drawing.Point(24, 386);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(836, 76);
             this.richTextBox1.TabIndex = 20;
             this.richTextBox1.Text = "";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(723, 325);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(94, 29);
+            this.button3.TabIndex = 21;
+            this.button3.Text = "Поиск";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(23, 329);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(655, 20);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "Поиск выполняется по критериям должность, уровень образования и наличию соц. паке" +
+    "та.";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(872, 337);
+            this.ClientSize = new System.Drawing.Size(872, 474);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.vacationOfJob);
             this.Controls.Add(this.label10);
@@ -325,5 +353,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox vacationOfJob;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label11;
     }
 }
